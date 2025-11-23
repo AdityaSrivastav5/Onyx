@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -23,7 +23,7 @@ interface Integration {
   accountEmail?: string;
 }
 
-export default function IntegrationsPage() {
+function IntegrationsContent() {
   const [integrations, setIntegrations] = useState<Integration[]>([
     {
       id: 'google-calendar',
@@ -329,5 +329,13 @@ export default function IntegrationsPage() {
         </motion.div>
       </div>
     </PageTransition>
+  );
+}
+
+export default function IntegrationsPage() {
+  return (
+    <Suspense fallback={<div className="flex items-center justify-center h-screen"><Loader2 className="w-8 h-8 animate-spin" /></div>}>
+      <IntegrationsContent />
+    </Suspense>
   );
 }
