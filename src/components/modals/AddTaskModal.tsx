@@ -28,6 +28,7 @@ interface AddTaskModalProps {
   onSubmit?: (task: {
     title: string;
     description: string;
+    dueDate: string;
     priority: string;
     status: string;
     tags: string[];

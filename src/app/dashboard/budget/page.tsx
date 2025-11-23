@@ -79,7 +79,7 @@ export default function BudgetPage() {
       const catBudgets: Record<string, string> = {};
       if (response.data.categoryBudgets) {
         Object.entries(response.data.categoryBudgets).forEach(([key, value]) => {
-          catBudgets[key] = value.toString();
+          catBudgets[key] = String(value);
         });
       }
       setCategoryBudgets(catBudgets);

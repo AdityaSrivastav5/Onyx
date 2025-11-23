@@ -3,7 +3,7 @@
 // Type declaration for Chrome API (for TypeScript)
 declare global {
     interface Window {
-        chrome?: typeof chrome;
+        chrome?: any;
     }
 }
 
